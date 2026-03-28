@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>匯款資訊</title>
+  <style>
+    :root{--bg:#17171e;--panel:#3a3742;--text:#f1e6d3;--muted:#d5c6ae;--gold:#e7c04a;--gold2:#f0cf63;--line:rgba(255,255,255,.05);--shadow:0 10px 24px rgba(0,0,0,.28)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;background:linear-gradient(180deg,#1b1b22,#121216);color:var(--text)}
+    .top{padding:18px 18px 12px;text-align:center;font-size:20px;font-weight:800;color:#fff}
+    .wrap{width:min(430px,92vw);margin:0 auto;padding:8px 0 28px}
+    .card{background:var(--panel);border-radius:26px;padding:20px 18px;box-shadow:var(--shadow);border:1px solid var(--line);margin-bottom:16px}
+    .badge{display:inline-block;padding:10px 18px;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#463300;font-weight:900;margin-bottom:12px}
+    .title{font-size:24px;font-weight:900;margin:0 0 14px;color:#fff}
+    .row{margin:8px 0;font-size:16px;line-height:1.8;color:var(--text);word-break:break-all}
+    .amount{font-size:30px;font-weight:900;color:#fff;margin:6px 0 12px}
+    .btn{width:100%;padding:16px;border:none;border-radius:999px;font-size:18px;font-weight:900;cursor:pointer;color:#463300;background:linear-gradient(90deg,#d6c7a2,var(--gold2));box-shadow:var(--shadow);margin-top:10px}
+    .tips{margin-top:10px;font-size:12px;line-height:1.6;color:var(--muted)}
+    a.back{color:#fff;text-decoration:none;margin-left:6px}
+  </style>
+</head>
+<body>
+  <div class="top">收款方式</div>
+  <main class="wrap">
+    <a class="back" href="order.html">← 返回下單頁</a>
+
+    <div class="card">
+      <div class="badge">本次匯款帳號</div>
+      <div class="title" id="bankTitle">載入中...</div>
+      <div class="row" id="bankAccount"></div>
+      <div class="row" style="color:var(--muted)">請依系統顯示帳號完成匯款</div>
+      <button class="btn" type="button" id="copyBtn">複製匯款帳號</button>
+    </div>
+
+    <div class="card">
+      <div class="title">下單資訊</div>
+      <div class="row" id="cardTypeRow"></div>
+      <div class="row" id="amountRow"></div>
+      <div class="amount" id="amountBig"></div>
+      <div class="row" id="contactTypeRow"></div>
+      <div class="row" id="contactNameRow"></div>
+      <div class="row" id="contactValueRow"></div>
+      <div class="tips">匯款完成後，再用你填寫的聯絡方式提供匯款資訊即可。</div>
+    </div>
+  </main>
+
+  <script>
+    const banks = [
+      { name: "387 LINE Pay", account: "172072664879" },
+      { name: "388 全盈支付", account: "11403424275" },
+      { name: "389 全支付", account: "11016063143580" },
+      { name: "390 悠遊付", account: "2202504064555544" },
+      { name: "391 一卡通", account: "1527916277" },
+      { name: "396 街口支付", account: "904351922" },
+      { name: "398 簡單付", account: "16800033787582" },
+      { name: "012 台北富邦", account: "00440168321252" },
+      { name: "013 國泰世華", account: "699516956970" },
+      { name: "700 中華郵政(郵局)", account: "00014830708681" },
+      { name: "805 遠東銀行", account: "04300497730503" },
+      { name: "823 將來銀行", account: "88690966907910" },
+      { name: "824 LINE Bank", account: "111021505616" }
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    const cardType = params.get("cardType") || "";
+    const amount = params.get("amount") || "";
+    const contactType = params.get("contactType") || "";
+    const contactName = params.get("contactName") || "";
+    const contactValue = params.get("contactValue") || "";
+
+    if(!cardType || !amount || !contactType || !contactName || !contactValue){
+      alert("缺少下單資料，將返回下單頁");
+      window.location.href = "order.html";
+    } else {
+      const bank = banks[Math.floor(Math.random() * banks.length)];
+      document.getElementById("bankTitle").textContent = bank.name;
+      document.getElementById("bankAccount").textContent = "匯款帳號：" + bank.account;
+      document.getElementById("copyBtn").onclick = function(){
+        navigator.clipboard.writeText(bank.account);
+        alert("已複製匯款帳號：" + bank.account);
+      };
+
+      document.getElementById("cardTypeRow").textContent = "點數卡樣式：" + cardType;
+      document.getElementById("amountRow").textContent = "下單金額：" + amount;
+      document.getElementById("amountBig").textContent = "NT$ " + amount;
+      document.getElementById("contactTypeRow").textContent = "聯絡方式：" + contactType;
+      document.getElementById("contactNameRow").textContent = "聯絡名稱：" + contactName;
+      document.getElementById("contactValueRow").textContent = "聯絡資訊：" + contactValue;
+    }
+  </script>
+</body>
+</html>

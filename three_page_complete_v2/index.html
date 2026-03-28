@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>點數卡代儲中心</title>
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;background:linear-gradient(180deg,#140d2b,#0a0817);color:#fff}
+    .wrap{max-width:430px;margin:0 auto;padding:24px 16px 100px}
+    .hero{background:linear-gradient(180deg,#5b35db,#2c176e);border-radius:28px;padding:36px 20px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.28)}
+    .badge{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.12);font-size:12px;font-weight:800}
+    h1{margin:14px 0 8px;font-size:34px;line-height:1.15}
+    p{color:#efeaff}
+    .discount{display:inline-block;margin-top:14px;padding:10px 16px;border-radius:999px;background:linear-gradient(90deg,#ff8bd8,#ffb37b);font-weight:800}
+    .btn{display:inline-block;margin-top:18px;padding:14px 28px;border-radius:14px;background:#fff;color:#4a2db3;text-decoration:none;font-weight:900}
+    .section{margin-top:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:18px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .card{background:rgba(255,255,255,.04);border-radius:18px;padding:16px;text-align:center}
+    .steps .item{display:flex;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.06)}
+    .steps .item:first-child{border-top:none}
+    .num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#8a6dff,#6545ea);font-size:13px;font-weight:900;flex:0 0 auto}
+    .bottom{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(430px,92vw);display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .bottom a{text-align:center;padding:13px 10px;border-radius:14px;text-decoration:none;font-weight:900}
+    .primary{background:linear-gradient(90deg,#8d69ff,#d06cff);color:#fff}
+    .secondary{background:rgba(18,16,56,.95);color:#efeaff;border:1px solid rgba(255,255,255,.08)}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="badge">官方合作通路</div>
+      <h1>全平台點數卡代儲中心</h1>
+      <p>快速處理・流程清楚・多平台支援</p>
+      <div class="discount">💳 所有點數卡 9.2 折優惠</div><br>
+      <a class="btn" href="order.html">立即下單</a>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <div class="card"><strong>合法票據登記</strong><p>交易流程透明</p></div>
+        <div class="card"><strong>專業代儲服務</strong><p>多平台支援更省時</p></div>
+      </div>
+    </section>
+
+    <section class="section steps">
+      <h2 style="margin:0 0 10px;font-size:18px">購買流程</h2>
+      <div class="item"><div class="num">1</div><div><strong>選擇點數卡</strong><div>點擊立即下單進入下單頁</div></div></div>
+      <div class="item"><div class="num">2</div><div><strong>填寫資料</strong><div>選擇金額、聯絡方式與名稱</div></div></div>
+      <div class="item"><div class="num">3</div><div><strong>確認下單</strong><div>系統帶你到匯款資訊頁</div></div></div>
+      <div class="item"><div class="num">4</div><div><strong>完成匯款</strong><div>依指定帳號完成付款</div></div></div>
+    </section>
+  </main>
+
+  <div class="bottom">
+    <a class="primary" href="order.html">立即下單</a>
+    <a class="secondary" href="#">聯絡客服</a>
+  </div>
+</body>
+</html>
